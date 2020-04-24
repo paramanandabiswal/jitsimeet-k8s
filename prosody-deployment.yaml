@@ -1,0 +1,58 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: prosody
+  namespace: test
+  name: prosody
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        service: prosody
+    spec:
+      containers:
+      - env:
+        - name: XMPP_DOMAIN
+          value: test.devopsk8s.cf
+        - name: XMPP_AUTH_DOMAIN
+          value: auth.test.devopsk8s.cf
+        - name: XMPP_GUEST_DOMAIN
+          value: guest.test.devopsk8s.cf
+        - name: XMPP_MUC_DOMAIN
+          value: muc.test.devopsk8s.cf
+        - name: JICOFO_COMPONENT_SECRET
+          value: password
+#          value: s3cr37
+        - name: XMPP_RECORDER_DOMAIN
+          value: recorder.test.devopsk8s.cf
+        - name: JVB_COMPONENT_SECRET
+#          value: s3cr3t
+          value: password
+        - name: JICOFO_AUTH_USER
+          value: focus
+        - name: JICOFO_AUTH_PASSWORD
+#          value: passw0rd
+          value: password
+        - name: JVB_AUTH_USER
+          value: jvb   
+        - name: JVB_AUTH_PASSWORD
+          value: password
+#          value: jPAtowFU
+        - name: XMPP_INTERNAL_MUC_DOMAIN
+          value: internal-muc.test.devopsk8s.cf
+        - name: TZ
+          value: Asia/Kolkata
+        image: jitsi/prosody
+        name: prosody
+        ports:
+        - containerPort: 5222
+        - containerPort: 5280
+        - containerPort: 5347
+        - containerPort: 5269
+        resources: {}
+      restartPolicy: Always
+status: {}
