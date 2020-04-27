@@ -19,11 +19,11 @@ spec:
         - name: JVB_PORT
           value: "10000"
         - name: XMPP_SERVER
-          value: 10.100.172.51
+          value: 10.100.81.46
 #          value: <IP address of the prosody ClusterIP service>
         - name: DOCKER_HOST_ADDRESS
-          value: 10.100.221.17 
-#          value: <External IP address of the LoadBalancer service exposing the UDP:10000 TCP:4443 ports of the videobridge>
+          value: 10.100.30.181
+#          value:<ClusterIP of jvb service exposing the UDP:10000 TCP:4443 ports of the videobridge>
         - name: XMPP_DOMAIN
           value: test.devopsk8s.cf
         - name: XMPP_AUTH_DOMAIN
@@ -56,5 +56,11 @@ spec:
         - containerPort: 10000
           protocol: UDP
         - containerPort: 4443
-        resources: {}
+        resources:
+          requests:
+            memory: "300Mi"
+            cpu: "300m"
+          limits:
+            memory: "500Mi"
+            cpu: "500m"                
       restartPolicy: Always

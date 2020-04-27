@@ -28,10 +28,16 @@ spec:
           value: muc.test.devopsk8s.cf
         - name: TZ
           value: Asia/Kolkata
-        image: jitsi/web
+        image: ramalingam81/jitsi-web-logo
         name: web
         ports:
         - containerPort: 80
         - containerPort: 443
-        resources: {}
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "200m"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"
 status: {}

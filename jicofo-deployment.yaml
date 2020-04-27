@@ -17,7 +17,7 @@ spec:
       containers:
       - env:
         - name: XMPP_SERVER
-          value: 10.100.172.51
+          value: 10.100.81.46
 #value: prosody clusterip          
         - name: XMPP_DOMAIN
           value: test.devopsk8s.cf
@@ -39,6 +39,12 @@ spec:
           value: Asia/Kolkata
         image: jitsi/jicofo
         name: jicofo
-        resources: {}
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "200m"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"                
       restartPolicy: Always
 status: {}
