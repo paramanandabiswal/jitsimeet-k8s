@@ -26,6 +26,8 @@ spec:
           value: http://prosody:5280
         - name: XMPP_MUC_DOMAIN
           value: muc.test.devopsk8s.cf
+        - name: ETHERPAD_URL_BASE
+          value: http://etherpad:9100
         - name: TZ
           value: Asia/Kolkata
         image: ramalingam81/jitsi-web-logo

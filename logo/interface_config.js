@@ -28,8 +28,8 @@ var interfaceConfig = {
     GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
     DISPLAY_WELCOME_PAGE_CONTENT: true,
     DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
-    APP_NAME: 'Omniwyse-Meet',
-    NATIVE_APP_NAME: 'Jitsi Meet',
+    APP_NAME: 'Omniwyse Meet',
+    NATIVE_APP_NAME: 'Omniwyse Meet',
     PROVIDER_NAME: 'Omniwyse',
     LANG_DETECTION: true, // Allow i18n to detect the system language
     INVITATION_POWERED_BY: true,

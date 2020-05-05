@@ -19,10 +19,10 @@ spec:
         - name: JVB_PORT
           value: "10000"
         - name: XMPP_SERVER
-          value: 10.100.81.46
+          value: 10.100.237.51
 #          value: <IP address of the prosody ClusterIP service>
         - name: DOCKER_HOST_ADDRESS
-          value: 10.100.30.181
+          value: 10.100.21.4
 #          value:<ClusterIP of jvb service exposing the UDP:10000 TCP:4443 ports of the videobridge>
         - name: XMPP_DOMAIN
           value: test.devopsk8s.cf

@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: etherpad
+  name: etherpad
+  namespace: test
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        service: etherpad
+    spec:
+      containers:
+      - env:
+        - name: XMPP_SERVER
+          value: 10.100.1.63
+#value: prosody clusterip          
+        - name: XMPP_DOMAIN
+          value: test.devopsk8s.cf
+        - name: XMPP_AUTH_DOMAIN
+          value: auth.test.devopsk8s.cf
+        - name: JICOFO_COMPONENT_SECRET
+#          value: s3cr37
+          value: password
+        - name: JICOFO_AUTH_USER
+          value: focus
+        - name: JVB_BREWERY_MUC
+          value: jvbbrewery
+        - name: XMPP_INTERNAL_MUC_DOMAIN
+          value: internal-muc.test.devopsk8s.cf
+        - name: JICOFO_AUTH_PASSWORD
+          value: password
+#          value: passw0rd
+        - name: TZ
+          value: Asia/Kolkata
+        image: jitsi/etherpad
+        name: etherpad
+        ports:
+        - containerPort: 9100
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "200m"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"                
+      restartPolicy: Always
+status: {}

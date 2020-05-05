@@ -10,7 +10,7 @@
    tls:
    - hosts:
      - test.devopsk8s.cf
-     secretName: jitsi-letsencrypt-tls
+     secretName: test-letsencrypt-tls
    rules:
    - host: test.devopsk8s.cf
      http:

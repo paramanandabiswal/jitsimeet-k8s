@@ -17,7 +17,7 @@ spec:
       containers:
       - env:
         - name: XMPP_SERVER
-          value: 10.100.81.46
+          value: 10.100.237.51
 #value: prosody clusterip          
         - name: XMPP_DOMAIN
           value: test.devopsk8s.cf
