@@ -7,14 +7,20 @@ metadata:
   namespace: test
 spec:
   ports:
-  - name: "4443"
-    port: 4443
-    targetPort: 4443
-  - name: "10000"
-    port: 10000
+  - name: jvbtcp-port
+    nodePort: 30000
+    port: 30000
+    protocol: TCP
+    targetPort: 30000
+  - name: jvbudp-port
+    nodePort: 31000
+    port: 31000
     protocol: UDP
-    targetPort: 10000
+    targetPort: 31000
   selector:
     service: jvb
+  sessionAffinity: None
+  type: NodePort
 status:
   loadBalancer: {}
+
